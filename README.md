@@ -9,9 +9,12 @@ isprime(i) Determines if i is prime
   print lines of python for computation
 
 ____________________________________  
-sieve(l) Sieve of Eratosthenes. 
-  Lists all primes up to limit l
+sieveOfEratosthenes(l,plot=0) Sieve of Eratosthenes. 
+  A slow, ancient sieve to find primes up to limit l
   
-  Plots prime number distribution
+  plot=1 plots prime distribution in matplotlib
+____________________________________  
+sieveOfAtkin(l,plot=0) Sieve of Atkin. 
+  A modern sieve that completes in linear time
   
-  Requires matplotlib for plotting.
+  plot=1 plots prime distribution in matplotlib
