@@ -137,39 +137,25 @@ def isprime(i):
 
 #Lists all primes up to limit l
 def sieve(l):
-    limit=l+1
-    upperbound=floor(sqrt(l))
-    irange=list(range(2,limit))
-    composites=[1]
-    checknum=2
-
-    #sieve
-    for x in range(checknum,upperbound):
-        for n in range(checknum,limit,checknum):
-            composites.append(n)
-            if n in irange and n!= 2 and n!= 3 and n!= 5: # This only stores primes <6 into memory!
-                irange.remove(n)
-                #for z in range(checknum*checknum, upperbound, checknum): 
-                #something has to go here to fix the problem with this
-        else:
-            checknum+=1
+    composite = []
+    prime = []
+    for i in range(2, l+1):
+        if i not in composite:
+            prime.append(i)
+            for j in range(i*i, l+1, i):
+                composite.append(j)
 
     #console output
-    irange.sort()
-    print(irange)
+    prime.sort()
+    print(prime)
 
     #plotting
-    plt.plot(irange)
-    plt.title('Prime Number Distribution, bitch')
+    plt.plot(prime)
+    plt.title('Prime Number Distribution')
     plt.ylabel('Numbers')
-    plt.xlabel('Primes up to y')
+    plt.xlabel('Primes before the Number')
     plt.grid()
-    if limit >= 44:
-        key=('Primes below ' + str(floor(sqrt(l))) + ' are not displayed properly')
-        plt.text(len(irange)/12,2*(limit/3),key)
-        plt.show()
-        return
-    else:
-        plt.show()
-        return
+
+    plt.show()
+    return
 
