@@ -1,7 +1,6 @@
 from math import sqrt,floor
 from functools import reduce
 from operator import mul
-import matplotlib.pyplot as plt
 import os
 
 os.system('cls')
@@ -19,7 +18,15 @@ def doc():
     isprime(i)  * Determines if i is prime
                    * print lines of python for computation
 
-    sieve(l)    * Sieve of Eratosthenes. Lists all primes up to limit l
+    sieveOfEratosthenes(l, plot=0)    * Sieve of Eratosthenes.
+                   * Lists all primes up to limit l
+                   * Slow, ancient sieve for finding primes
+                   * plot=1 to plot with matplotlib
+
+    sieveOfAtkin(l,plot=0)   *Sieve of Atkin
+                  * Lists all primes up to limit l
+                  * Modern sieve. Completes in linear time
+                  * plot=1 to plot with matplotlib
     """)
     return
 doc()
@@ -136,7 +143,7 @@ def isprime(i):
     return
 
 #Lists all primes up to limit l
-def sieve(l):
+def sieveOfEratosthenes(l, plot=0):
     composite = []
     prime = []
     for i in range(2, l+1):
@@ -145,17 +152,44 @@ def sieve(l):
             for j in range(i*i, l+1, i):
                 composite.append(j)
 
-    #console output
-    prime.sort()
-    print(prime)
+    #plotting prime distribution
+    if(plot):
+        primeDistributionPlot(prime)
+    return prime
 
-    #plotting
-    plt.plot(prime)
+#Sieve of Atkin
+# A more modern sieve for finding primes
+# Works in linear time
+def sieveOfAtkin(l,plot=0):
+    prime = [2,3]
+    sieve=[False]*(l+1)
+    for i in range(1,int(sqrt(l))+1):
+        for j in range(1,int(sqrt(l))+1):
+            n = 4*i**2 + j**2
+            if n<=l and (n%12==1 or n%12==5) : sieve[n] = not sieve[n]
+            n = 3*i**2+j**2
+            if n<= l and n%12==7 : sieve[n] = not sieve[n]
+            n = 3*i**2 - j**2
+            if i>j and n<=l and n%12==11 : sieve[n] = not sieve[n]
+    for i in range(5,int(sqrt(l))):
+        if sieve[i]:
+            for j in range(i**2,l+1,i**2):
+                sieve[j] = False
+    for p in range(5,l):
+        if sieve[p] : prime.append(p)
+
+    #plotting prime distribution
+    if(plot):
+        primeDistributionPlot(prime)
+
+    return prime
+
+def primeDistributionPlot(values):
+    import matplotlib.pyplot as plt
+    plt.plot(values)
     plt.title('Prime Number Distribution')
     plt.ylabel('Numbers')
     plt.xlabel('Primes before the Number')
     plt.grid()
-
     plt.show()
     return
-
