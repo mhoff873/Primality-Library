@@ -6,7 +6,7 @@ factor(n)
   Lists the factors of n. 
 
 
-
+  
 isprime(i)
 
   Determines if i is prime
