@@ -2,9 +2,10 @@
 Written for Python 3.3. 
 
 factor(n)
+
   Lists the factors of n. 
 
-isprime(i)  
+isprime(i)
   Determines if i is prime
   print lines of python for computation
 
