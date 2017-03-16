@@ -1,7 +1,7 @@
 # Primality-Library
 Written for Python 3.3. Matplotlib required to plot prime number distribution in sieves
 
-###### Functions
+#### Functions
 ____________________________________ 
 factor(n) 
 - Lists the factors of n. 
