@@ -37,15 +37,12 @@ def factor(n):
     factors=[]
     #if n is negative, it is transformed into a positive number
     if data <0:
-        # if n is negative, assume it positive
         print("negative conversion taking place")
         factor(-(data))
         return
     #if n is 0, it has infinite factors
     if data ==0:
-        #if n is 0
         factors.append(0)
-        #print(factors)
         print("Every integer is a factor of zero")
         return factors
 
