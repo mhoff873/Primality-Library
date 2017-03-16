@@ -22,7 +22,7 @@ def doc():
                    * plot=1 to plot with matplotlib
     sieveOfAtkin(l,plot=0)   *Sieve of Atkin
                   * Lists all primes up to limit l
-                  * Modern sieve. Completes in linear time
+                  * A modern sieve that completes much faster than the Sieve of Eratosthenes
                   * plot=1 to plot with matplotlib
     """)
     return
