@@ -10,6 +10,7 @@ def doc():
     print("""
 
        ***   PRIMELAB   ***   
+           Mason Hoffman
         primality functions
            v. 3/15/2017
     
@@ -138,7 +139,9 @@ def isprime(i):
         print("Lines of code for computation",lines)
     return
 
-#Lists all primes up to limit l
+# Sieve of Eratosthenes
+# Ancient sieve for finding primes
+# Lists all primes up to limit l
 def sieveOfEratosthenes(l, plot=0):
     composite = []
     prime = []
@@ -151,11 +154,12 @@ def sieveOfEratosthenes(l, plot=0):
     #plotting prime distribution
     if(plot):
         primeDistributionPlot(prime)
+    #returns a list of prime numbers
     return prime
 
-#Sieve of Atkin
+# Sieve of Atkin
 # A more modern sieve for finding primes
-# Works in linear time
+# Works much faster than the Sieve of Eratosthenes
 def sieveOfAtkin(l,plot=0):
     prime = [2,3]
     sieve=[False]*(l+1)
@@ -177,9 +181,10 @@ def sieveOfAtkin(l,plot=0):
     #plotting prime distribution
     if(plot):
         primeDistributionPlot(prime)
-
+    #returns a list of prime numbers
     return prime
 
+#Function to plot prime number distribution
 def primeDistributionPlot(values):
     import matplotlib.pyplot as plt
     plt.plot(values)
