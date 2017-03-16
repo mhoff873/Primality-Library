@@ -8,7 +8,7 @@ Functions for finding prime numbers, factors, and prime number distributions.
 - Lists the factors of `n`. 
 ____________________________________ 
 `isprime(i)`
- - Determines if 'i' is prime
+ - Determines if `i` is prime
  - Prints lines of code needed for computation
 ____________________________________  
 `sieveOfEratosthenes(l,plot=0)`
