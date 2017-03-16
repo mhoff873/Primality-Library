@@ -46,14 +46,12 @@ def factor(n):
         factors.append(0)
         print("Every integer is a factor of zero")
         return factors
-
     #determines if n is a perfect square of a square greater than 3
     upperbound=floor(sqrt(data))
     #recursively solves for factors of the square
     if upperbound > 3 and upperbound*upperbound==data:
         factors.extend(factor(upperbound))
         data=upperbound
-
     #if n is even, divide n by 2 until 2 is no longer a factor
     while data%2==0:
         if data==2:
@@ -70,7 +68,7 @@ def factor(n):
         else:
             factors.append(3)
         data/=3
-
+    #jump is intially 2. First it jumps from 5 to 7
     jump=2
     upperbound=floor(sqrt(n))
     #determines if any prime between 5 and the square root of n are factors of n
@@ -87,19 +85,16 @@ def factor(n):
             jump=2
         elif jump==2:
             jump=4
-
+        #if it finds all the factors before hitting the uppperbound, break from loop
         if reduce(mul,factors,1)==n:
             break
-
     #if the only factor if n is itself
     if int(data)==n:
         if n != 2 and n != 3:
             factors.append(int(data))
         factors.append(1)
-
     #sorts factor list
     factors.sort()
-
     #removes a 1 from factors list if function enters recursive square-finding loop
     if len(factors) > 2 and factors[0]==1:
         factors.pop(0)
@@ -177,7 +172,6 @@ def sieveOfAtkin(l,plot=0):
                 sieve[j] = False
     for p in range(5,l):
         if sieve[p] : prime.append(p)
-
     #plotting prime distribution
     if(plot):
         primeDistributionPlot(prime)
