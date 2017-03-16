@@ -8,22 +8,18 @@ os.system('cls')
 #docstring function
 def doc():
     print("""
-
        ***   PRIMELAB   ***   
            Mason Hoffman
         primality functions
            v. 3/15/2017
     
     factor(n)   * Lists the factors of  n. 
-
     isprime(i)  * Determines if i is prime
                    * print lines of python for computation
-
     sieveOfEratosthenes(l, plot=0)    * Sieve of Eratosthenes.
                    * Lists all primes up to limit l
                    * Slow, ancient sieve for finding primes
                    * plot=1 to plot with matplotlib
-
     sieveOfAtkin(l,plot=0)   *Sieve of Atkin
                   * Lists all primes up to limit l
                   * Modern sieve. Completes in linear time
@@ -37,12 +33,12 @@ def factor(n):
     data=n
     factors=[]
     #if n is negative, it is transformed into a positive number
-    if data <0:
+    if data<0:
         print("negative conversion taking place")
         factor(-(data))
         return
     #if n is 0, it has infinite factors
-    if data ==0:
+    if data==0:
         factors.append(0)
         print("Every integer is a factor of zero")
         return factors
