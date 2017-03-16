@@ -81,7 +81,7 @@ def factor(n):
             else:
                 factors.append(s)
             data/=s
-        
+        # adjusts jump to go between primes (5,7,11,13,17,19...)
         if jump==4:
             jump=2
         elif jump==2:
@@ -102,7 +102,6 @@ def factor(n):
     #removes a 1 from factors list if function enters recursive square-finding loop
     if len(factors) > 2 and factors[0]==1:
         factors.pop(0)
-    #print(factors)
     return factors
 
 prompt="Lines of code for computation: "
