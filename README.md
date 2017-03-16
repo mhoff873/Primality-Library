@@ -1,4 +1,5 @@
-# Primality-Library
+# Primelab
+Functions for finding prime numbers, factors, and prime number distributions
 Written for Python 3.3. Matplotlib required to plot prime number distribution in sieves
 
 ## Functions
