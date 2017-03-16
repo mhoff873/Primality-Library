@@ -15,6 +15,6 @@ sieveOfEratosthenes(l,plot=0) Sieve of Eratosthenes.
   plot=1 plots prime distribution in matplotlib
 ____________________________________  
 sieveOfAtkin(l,plot=0) Sieve of Atkin. 
-  A modern sieve that completes in linear time
+  A modern sieve that completes much faster than the Sieve of Eratosthenes
   
   plot=1 plots prime distribution in matplotlib
